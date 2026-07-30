@@ -1,0 +1,612 @@
+/* ==========================================================================
+   LUXURY METALLIC GOLD & DARK OBSIDIAN DESIGN SYSTEM
+   Theme: Gold FinTech / Agentic AI Trading & Fraud Prevention Suite
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+:root {
+  /* Color Palette - Metallic Gold & Obsidian */
+  --bg-deep: #07090E;
+  --bg-card: rgba(14, 19, 31, 0.75);
+  --bg-card-hover: rgba(22, 30, 48, 0.85);
+  --bg-input: #0E131F;
+  --bg-terminal: #070A10;
+
+  /* Gold Color System */
+  --gold-primary: #D4AF37;
+  --gold-bright: #FFD700;
+  --gold-light: #F9E79F;
+  --gold-dark: #996515;
+  --gold-bronze: #AA771C;
+  --gold-gradient: linear-gradient(135deg, #FFE57F 0%, #D4AF37 50%, #996515 100%);
+  --gold-gradient-hover: linear-gradient(135deg, #FFF0B3 0%, #F1C40F 50%, #B7950B 100%);
+  --gold-glow: rgba(212, 175, 55, 0.35);
+
+  /* Status Colors */
+  --accent-bullish: #2ECC71;
+  --accent-bullish-glow: rgba(46, 204, 113, 0.3);
+  --accent-bearish: #E74C3C;
+  --accent-bearish-glow: rgba(231, 76, 60, 0.3);
+  --accent-neutral: #F39C12;
+  --accent-blue: #3498DB;
+
+  /* Text & Border Colors */
+  --text-main: #F4F6F9;
+  --text-muted: #8E9AAF;
+  --text-gold: #FFD700;
+  --border-gold: rgba(212, 175, 55, 0.25);
+  --border-gold-bright: rgba(255, 215, 0, 0.6);
+  --border-dark: rgba(255, 255, 255, 0.08);
+
+  /* Fonts */
+  --font-heading: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-code: 'Fira Code', monospace;
+}
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-deep);
+  background-image: 
+    radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.08) 0%, transparent 45%),
+    radial-gradient(circle at 85% 85%, rgba(255, 215, 0, 0.05) 0%, transparent 40%);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-deep);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(212, 175, 55, 0.3);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-primary);
+}
+
+/* Typography Utilities */
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-heading);
+}
+
+.gold-text {
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* App Header & Currency Ticker Tape */
+.app-header {
+  border-bottom: 1px solid var(--border-gold);
+  background: rgba(7, 9, 14, 0.9);
+  backdrop-filter: blur(20px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.ticker-tape-container {
+  background: rgba(14, 19, 31, 0.95);
+  border-bottom: 1px solid rgba(212, 175, 55, 0.15);
+  overflow: hidden;
+  padding: 8px 0;
+  white-space: nowrap;
+}
+
+.ticker-tape {
+  display: inline-block;
+  animation: ticker-slide 35s linear infinite;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-right: 32px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.ticker-symbol {
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+.ticker-up {
+  color: var(--accent-bullish);
+}
+
+.ticker-down {
+  color: var(--accent-bearish);
+}
+
+@keyframes ticker-slide {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.navbar {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: var(--gold-gradient);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  color: #07090E;
+  box-shadow: 0 0 20px var(--gold-glow);
+}
+
+.brand-title {
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+
+.nav-tabs {
+  display: flex;
+  gap: 8px;
+  background: var(--bg-card);
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--border-gold);
+}
+
+.nav-tab {
+  padding: 10px 18px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  font-size: 0.9rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-tab:hover {
+  color: var(--gold-light);
+}
+
+.nav-tab.active {
+  background: var(--gold-gradient);
+  color: #07090E;
+  box-shadow: 0 4px 16px var(--gold-glow);
+}
+
+/* Layout Container */
+.main-container {
+  max-width: 1440px;
+  margin: 24px auto;
+  padding: 0 24px;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.4s ease forwards;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cards & Glassmorphism */
+.gold-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 215, 0, 0.15);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gold-card:hover {
+  border-color: var(--border-gold-bright);
+  box-shadow: 0 16px 40px rgba(212, 175, 55, 0.12);
+}
+
+/* Grid Layouts */
+.grid-2 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+}
+
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+/* Stock Market Trading Terminal Section */
+.controls-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.search-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.gold-input {
+  background: var(--bg-input);
+  border: 1px solid var(--border-gold);
+  color: var(--text-main);
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.gold-input:focus {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 12px var(--gold-glow);
+}
+
+.gold-btn {
+  background: var(--gold-gradient);
+  color: #07090E;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  padding: 10px 22px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 16px var(--gold-glow);
+}
+
+.gold-btn:hover {
+  background: var(--gold-gradient-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(255, 215, 0, 0.5);
+}
+
+.gold-btn-outline {
+  background: transparent;
+  border: 1px solid var(--border-gold);
+  color: var(--gold-light);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.gold-btn-outline:hover {
+  border-color: var(--gold-bright);
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--gold-bright);
+}
+
+.chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.price-display {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.current-price {
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+.price-change {
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+
+.price-change.up {
+  background: var(--accent-bullish-glow);
+  color: var(--accent-bullish);
+}
+
+.price-change.down {
+  background: var(--accent-bearish-glow);
+  color: var(--accent-bearish);
+}
+
+.chart-canvas-container {
+  position: relative;
+  height: 420px;
+  width: 100%;
+}
+
+/* 4-Agent Pipeline Workflow Diagram */
+.workflow-visualizer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 28px 0;
+  position: relative;
+}
+
+.workflow-step {
+  flex: 1;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  border-radius: 14px;
+  padding: 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+  transition: all 0.4s ease;
+}
+
+.workflow-step.active {
+  border-color: var(--gold-bright);
+  box-shadow: 0 0 24px var(--gold-glow);
+  transform: scale(1.04);
+}
+
+.step-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(212, 175, 55, 0.15);
+  border: 1px solid var(--border-gold);
+  color: var(--gold-bright);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0 auto 12px;
+  transition: all 0.3s ease;
+}
+
+.workflow-step.active .step-icon {
+  background: var(--gold-gradient);
+  color: #07090E;
+  box-shadow: 0 0 16px var(--gold-glow);
+}
+
+.step-arrow {
+  font-size: 1.8rem;
+  color: var(--gold-primary);
+  margin: 0 12px;
+  animation: pulse-arrow 1.8s infinite ease-in-out;
+}
+
+@keyframes pulse-arrow {
+  0%, 100% { opacity: 0.4; transform: translateX(0); }
+  50% { opacity: 1; transform: translateX(4px); }
+}
+
+/* Terminal Log Stream */
+.terminal-window {
+  background: var(--bg-terminal);
+  border: 1px solid var(--border-gold);
+  border-radius: 12px;
+  padding: 16px;
+  font-family: var(--font-code);
+  font-size: 0.88rem;
+  color: #D4D4D4;
+  height: 320px;
+  overflow-y: auto;
+  box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.8);
+}
+
+.terminal-header {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #FF5F56; }
+.dot.yellow { background: #FFBD2E; }
+.dot.green { background: #27C93F; }
+
+.log-line {
+  margin-bottom: 6px;
+  line-height: 1.5;
+}
+
+.log-info { color: #3498DB; }
+.log-success { color: var(--accent-bullish); }
+.log-gold { color: var(--gold-bright); }
+.log-warn { color: var(--accent-neutral); }
+.log-error { color: var(--accent-bearish); }
+
+/* Bracket Order Diagram Visualizer */
+.bracket-diagram-container {
+  background: rgba(7, 10, 16, 0.9);
+  border: 1px dashed var(--border-gold-bright);
+  border-radius: 14px;
+  padding: 24px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+.bracket-tree {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.bracket-node {
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+  padding: 16px;
+  border-radius: 12px;
+  min-width: 180px;
+}
+
+.bracket-node.stop-loss {
+  border-color: var(--accent-bearish);
+  box-shadow: 0 0 16px var(--accent-bearish-glow);
+}
+
+.bracket-node.take-profit {
+  border-color: var(--accent-bullish);
+  box-shadow: 0 0 16px var(--accent-bullish-glow);
+}
+
+/* Fraud Prevention Simulator Inputs */
+.slider-group {
+  margin-bottom: 18px;
+}
+
+.slider-header {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  margin-bottom: 8px;
+  color: var(--text-muted);
+}
+
+.slider-val {
+  color: var(--gold-light);
+  font-weight: 700;
+}
+
+.gold-slider {
+  width: 100%;
+  height: 6px;
+  border-radius: 3px;
+  background: #1A2338;
+  outline: none;
+  accent-color: var(--gold-bright);
+  cursor: pointer;
+}
+
+/* Risk Gauges */
+.gauge-box {
+  text-align: center;
+  padding: 20px;
+  border-radius: 14px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-gold);
+}
+
+.gauge-title {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.gauge-val {
+  font-size: 2.2rem;
+  font-weight: 800;
+  font-family: var(--font-heading);
+}
+
+.badge-alert {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  margin-top: 10px;
+
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-red {
+  background: var(--accent-bearish-glow);
+  color: var(--accent-bearish);
+  border: 1px solid var(--accent-bearish);
+}
+
+.badge-yellow {
+  background: rgba(243, 156, 18, 0.2);
+  color: var(--accent-neutral);
+  border: 1px solid var(--accent-neutral);
+}
+
+.badge-green {
+  background: var(--accent-bullish-glow);
+  color: var(--accent-bullish);
+  border: 1px solid var(--accent-bullish);
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .workflow-visualizer {
+    flex-direction: column;
+    gap: 16px;
+  }
+  .step-arrow {
+    transform: rotate(90deg);
+  }
+}
