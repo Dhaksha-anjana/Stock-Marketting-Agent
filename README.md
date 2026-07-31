@@ -1,4 +1,4 @@
-# 👑 Aurum Agentic AI: Autonomous Stock Trading & Fraud Prevention Suite
+Stock Marketing Agent
 
 [![Python Version](https://img.shields.io/badge/python-3.10%2B-gold.svg)](https://www.python.org/)
 [![Framework](https://img.shields.io/badge/Framework-LangGraph%20%7C%20Pydantic-brightgreen.svg)](https://python.langchain.com/)
